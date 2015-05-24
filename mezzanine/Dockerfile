@@ -19,6 +19,7 @@ COPY docker-defaults.ini.template defaults.ini.template
 
 ENV PROJECT_NAME webapp
 RUN mezzanine-project ${PROJECT_NAME}
+
 ONBUILD COPY local_settings.py ${PROJECT_NAME}/
 ONBUILD RUN python ${PROJECT_NAME}/manage.py createdb --noinput
 ONBUILD RUN python ${PROJECT_NAME}/manage.py collectstatic --noinput
