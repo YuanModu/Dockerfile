@@ -13,11 +13,12 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 ENV PROJECT_ROOT /srv/http
 WORKDIR ${PROJECT_ROOT}
 
-# Copy the configuration file template.
-ONBUILD COPY docker-nginx.conf.template nginx.conf.template
+# Copy the configuration file template and static files.
+COPY docker-nginx.conf.template nginx.conf.template
+ONBUILD COPY static static/
 
 COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
-EXPOSE 80
+EXPOSE 80 8000
 CMD ["nginx", "-g", "daemon off;"]

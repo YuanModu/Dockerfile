@@ -13,6 +13,9 @@ render() {
     done < $1
 }
 
+: ${NGINX_DOMAIN_NAME:=example.com}
+: ${NGINX_STATIC_ROOT:=${PROJECT_ROOT}/static}
+
 if [ "$1" = 'nginx' ]; then
     if [ ! -h /etc/nginx/nginx.conf  ]; then
         render ${PROJECT_ROOT}/nginx.conf.template ${PROJECT_ROOT}/nginx.conf
