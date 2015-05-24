@@ -12,7 +12,6 @@ RUN pip install mezzanine
 
 # Export the python project root path that will be served by uWSGI.
 ENV PROJECT_ROOT /srv/http
-ENV PYTHONPATH ${PROJECT_ROOT}
 WORKDIR ${PROJECT_ROOT}
 
 # Copy uWSGI ini files.
