@@ -1,0 +1,7 @@
+[uwsgi]
+pythonpath= ${UWSGI_PYTHONPATH}
+module = wsgi:application
+socket = 0.0.0.0:8000
+master = ${UWSGI_MASTER}
+processes = ${UWSGI_PROCESSES}
+vacuum = ${UWSGI_VACUUM}
