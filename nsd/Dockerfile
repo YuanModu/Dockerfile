@@ -3,7 +3,7 @@ FROM yuanmodu/archlinux
 MAINTAINER Atila Satilmis "atila.satilmis@gmail.com"
 
 RUN pacman -Syu nsd --noconfirm --needed \
-    && pacman -Scc --noconfirm
+    && pacman -Sc --noconfirm
 
 # Base image doesn't have systemd-tmpfiles command.
 # We have to put the directory in place manually.
