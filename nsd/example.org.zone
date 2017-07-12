@@ -1,0 +1,17 @@
+$ORIGIN example.org.
+$TTL 7200
+
+@       IN      SOA    ns1.example.org. admin.example.org. (
+                                        2016020202 ; Serial
+                                        7200       ; Refresh
+                                        1800       ; Retry
+                                        1209600    ; Expire
+                                        86400 )    ; Minimum
+
+                    IN                NS                   ns1.example.org.
+
+@                   IN                A                    IPv4
+hostname            IN                A                    IPv4
+ns1                 IN                A                    IPv4
+
+www                 IN                CNAME                hostname
