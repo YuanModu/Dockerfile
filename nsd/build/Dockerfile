@@ -1,1 +1,1 @@
-from yuanmodu/nsd:onbuild
+FROM yuanmodu/nsd:onbuild
