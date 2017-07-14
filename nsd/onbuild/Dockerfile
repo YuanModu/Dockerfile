@@ -1,5 +1,8 @@
 FROM arm64v8/alpine
 
+LABEL description "Simple DNS authoritative server" \
+	maintainer="Atila Satilmis <atila.satilmis@gmail.com>"
+
 RUN set -x \
 	&& apk add --no-cache nsd \
 	&& rm -rf /var/cache/apk/*
