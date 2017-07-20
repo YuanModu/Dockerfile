@@ -1,0 +1,6 @@
+nsd:
+  image: yuanmodu/nsd
+  container_name: nsd
+  ports:
+    - "0.0.0.0:53:53"
+    - "0.0.0.0:53:53/udp"
