@@ -1,7 +1,7 @@
-worker_processes  4;
+worker_processes auto;
 
 events {
-    worker_connections  1024;
+    worker_connections 512;
 }
 
 http {
@@ -9,31 +9,22 @@ http {
     default_type        application/octet-stream;
     sendfile            on;
     keepalive_timeout   65;
+    access_log          off;
 
     server {
         listen          80;
-        server_name     ${NGINX_DOMAIN_NAME};
-        return          301 http://www.${NGINX_DOMAIN_NAME}$request_uri;
+        server_name     @@NGINX_DOMAIN_NAME@@;
+        return          301 http://www.@@NGINX_DOMAIN_NAME@@$request_uri;
     }
 
     server {
         listen          80;
-        server_name     www.${NGINX_DOMAIN_NAME};
+        server_name     www.@@NGINX_DOMAIN_NAME@@;
         charset         utf-8;
 
         location / {
             include     uwsgi_params;
             uwsgi_pass  uwsgi:8000;
-        }
-    }
-
-    server {
-        listen          80;
-        server_name     static.${NGINX_DOMAIN_NAME};
-        charset         utf-8;
-
-        location / {
-            alias       ${NGINX_STATIC_ROOT}/;
         }
     }
 }

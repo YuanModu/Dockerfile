@@ -1,11 +1,11 @@
-FROM arm64v8/alpine
+FROM arm32v7/alpine
 
 LABEL description "Simple DNS authoritative server" \
 	maintainer="Atila Satilmis <atila.satilmis@gmail.com>"
 
 RUN set -x \
 	&& apk add --no-cache nsd \
-	&& rm -rf /var/cache/apk/*
+	&& install -dm700 -o nsd -g nsd /var/run/nsd/
 
 # Copy NSD config file and zonefiles.
 ONBUILD COPY nsd.conf /etc/nsd/
