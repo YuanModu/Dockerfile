@@ -4,8 +4,7 @@ LABEL description "Simple DNS authoritative server" \
 	maintainer="Atila Satilmis <atila.satilmis@gmail.com>"
 
 RUN set -x \
-	&& apk add --no-cache nsd \
-	&& install -dm700 -o nsd -g nsd /var/run/nsd/
+	&& apk add --no-cache nsd
 
 # Copy NSD config file and zonefiles.
 ONBUILD COPY nsd.conf /etc/nsd/
