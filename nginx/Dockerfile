@@ -6,7 +6,6 @@ LABEL description "Simple DNS authoritative server" \
 
 RUN set -x \
 	&& apk add --no-cache nginx \
-	&& install -dm700 -o nginx -g nginx /run/nginx
 
 # Copy the configuration file template and static files.
 COPY docker-nginx.conf.template /nginx.conf.template
