@@ -1,9 +1,10 @@
 [uwsgi]
+plugins= python3
 pythonpath= /usr/share/webapp
 module = webapp.wsgi:application
 touch-reload = /usr/share/webapp/touch-reload
 pidfile = /run/uwsgi/uwsgi.pid
-suwsgi-socket = 172.17.0.2:8000
+uwsgi-socket = 172.17.0.2:8000
 stats = 172.17.0.2:8001
 uid = uwsgi
 guid = uwsgi

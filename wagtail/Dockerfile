@@ -26,8 +26,10 @@ RUN set -x \
 		freetype \
 		lcms2
 
-COPY docker-entrypoint.sh /entrypoint.sh
 COPY docker-defaults.ini.template /defaults.ini.template
+
+COPY docker-entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 8000 5432
 CMD ["uwsgi", "--ini", "/etc/uwsgi/defaults.ini"]
