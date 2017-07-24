@@ -10,7 +10,7 @@ pid         /run/nginx/nginx.pid;
 
 events {
     worker_connections  1024;
-    user                epoll;
+    use                 epoll;
 }
 
 http {
