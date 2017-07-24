@@ -1,8 +1,7 @@
 FROM yuanmodu/alpine-arm32v7
 
-LABEL description "Simple DNS authoritative server" \
+LABEL description "NGINX proxy server" \
 	maintainer="Atila Satilmis <atila.satilmis@gmail.com>"
-
 
 RUN set -x \
 	&& apk add --no-cache nginx
