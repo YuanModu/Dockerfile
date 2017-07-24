@@ -4,7 +4,7 @@ LABEL description "Python application server" \
 	maintainer="Atila Satilmis <atila.satilmis@gmail.com>"
 
 RUN set -x \
-	&& apk add --no-cache --virtual .build-deps \
+	apk add --no-cache --virtual .build-deps \
 		zlib-dev \
 		build-base \
 		python3-dev \
