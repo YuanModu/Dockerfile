@@ -5,7 +5,7 @@ set -e
 
 if [ "$1" = 'nginx' ]; then
         # Clean files related to some previous run.
-        rm -f /run/nsd/nsd.pid
+        rm -f /run/nginx/nginx.pid
 
         # Since we have no init system, runtime folders have to be created manually.
         install -dm700 -o nginx -g nginx /run/nginx
