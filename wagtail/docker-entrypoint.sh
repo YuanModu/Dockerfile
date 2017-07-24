@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
 
+: ${GIT_REPO:=https://github.com/YuanModu/yuan.com.tr}
 : ${MASTER:=true}
 : ${VACUUM:=false}
 : ${THUNDER_LOCK:=true}
@@ -17,7 +18,9 @@ if [ "$1" = 'uwsgi' ]; then
     # Clean files related to some previous run.
     rm -f /run/uwsgi/uwsgi.pid
     # Since we have no init system, runtime folders have to be created manually.
-    install -d -o uwsgi -g uwsgi -m 0700 /run/uwsgi
+
+    git clone $GIT_REPO /usr/share/webapp
+    chown -R uwsgi.uwsgi /usr/share/webapp
 
     sed -e "s|@@MASTER@@|$MASTER|" \
     	-e "s|@@VACUUM@@|$VACUUM|" \
