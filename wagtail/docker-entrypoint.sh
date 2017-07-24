@@ -17,7 +17,9 @@ set -e
 if [ "$1" = 'uwsgi' ]; then
     # Clean files related to some previous run.
     rm -f /run/uwsgi/uwsgi.pid
+
     # Since we have no init system, runtime folders have to be created manually.
+    install -dm700 -o uwsgi -g uwsgi /run/uwsgi
 
     git clone $GIT_REPO /usr/share/webapp
     chown -R uwsgi.uwsgi /usr/share/webapp
