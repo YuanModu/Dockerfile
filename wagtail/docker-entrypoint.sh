@@ -6,7 +6,7 @@ set -e
 : ${VACUUM:=false}
 : ${THUNDER_LOCK:=true}
 : ${PROCESSES:=4}
-: ${THREADS:=4}
+: ${THREADS:=2}
 : ${HARAKIRI:=20}
 : ${MAX_REQUEST:=5000}
 : ${POST_BUFFERING:=0}
