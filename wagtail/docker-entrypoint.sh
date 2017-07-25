@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-: ${GIT_REPO:=https://github.com/YuanModu/yuan.com.tr}
+: ${GIT_REPO:=https://github.com/YuanModu/webapp.git}
 : ${MASTER:=true}
 : ${VACUUM:=false}
 : ${THUNDER_LOCK:=true}
