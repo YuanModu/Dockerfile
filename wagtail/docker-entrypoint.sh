@@ -23,7 +23,7 @@ if [ "$1" = 'uwsgi' ]; then
 
     git clone $GIT_REPO /usr/share/webapp
     chown -R uwsgi.uwsgi /usr/share/webapp
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
 
     sed -e "s|@@MASTER@@|$MASTER|" \
     	-e "s|@@VACUUM@@|$VACUUM|" \
