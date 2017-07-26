@@ -35,17 +35,17 @@ http {
     access_log              /var/log/nginx/access.log main;
 
     upstream python {
-        server          192.168.1.202:8000;
+        @@NGINX_UPSTREAM_SERVERS@@
     }
 
     server {
-        listen          80;
+        listen          @@NGINX_DOMAIN_PORT@@;
         server_name     @@NGINX_DOMAIN_NAME@@;
         return          301 http://www.@@NGINX_DOMAIN_NAME@@$request_uri;
     }
 
     server {
-        listen          80;
+        listen          @@NGINX_DOMAIN_PORT@@;
         server_name     www.@@NGINX_DOMAIN_NAME@@;
         charset         utf-8;
 
