@@ -2,7 +2,7 @@ nginx:
   image: yuanmodu/nginx
   container_name: nginx
   ports:
-    - "192.168.1.201:80:80/tcp"
-    - "192.168.1.201:8000:8000/tcp"
+    - "80:80/tcp"
+    - "8000:8000/tcp"
   environment:
     - NGINX_DOMAIN_NAME=example.org

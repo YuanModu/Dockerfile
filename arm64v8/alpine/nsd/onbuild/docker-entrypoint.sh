@@ -7,7 +7,7 @@ if [ "$1" = 'nsd' ]; then
     rm -f /var/db/nsd/{nsd.db,xfrd.state}
 
     # Since we have no init system, runtime folders have to be created manually.
-    install -dm700 -o nsd -g nsd /var/run/nsd
+    install -dm700 -o nsd -g nsd /var/{run,db}/nsd
 fi
 
 exec "$@"
