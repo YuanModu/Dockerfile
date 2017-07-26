@@ -1,4 +1,4 @@
-FROM yuanmodu/alpine-arm32v7
+FROM yuanmodu/arm64v8-alpine
 
 LABEL description "Simple DNS authoritative server" \
 	maintainer="Atila Satilmis <atila.satilmis@gmail.com>"

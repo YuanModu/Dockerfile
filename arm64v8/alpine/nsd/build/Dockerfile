@@ -1,1 +1,1 @@
-FROM yuanmodu/nsd-arm32v7:onbuild
+FROM yuanmodu/arm64v8-alpine-nsd:onbuild
