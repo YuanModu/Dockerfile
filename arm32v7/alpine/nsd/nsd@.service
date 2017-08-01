@@ -25,3 +25,6 @@ ExecStart=/usr/bin/docker start -a nsd
 
 ExecStop=/usr/bin/docker stop nsd
 ExecStopPost=/usr/bin/docker rm nsd
+
+[Install]
+WantedBy=multi-user.target
