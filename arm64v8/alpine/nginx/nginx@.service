@@ -1,0 +1,28 @@
+[Unit]
+Description=NGINX web server
+
+Requires=docker.service
+
+After=docker.service
+
+[Service]
+Type=simple
+
+TimeoutStartSec=0
+
+KillMode=none
+
+EnvironmentFile=/etc/environment
+
+ExecStartPre=/usr/bin/docker create \
+    --name nginx \
+    -p 80:80/tcp \
+    -p 8000:8000/tcp \
+    yuanmodu/arm64v8-alpine-nginx
+ExecStart=/usr/bin/docker start -a nginx
+
+ExecStop=/usr/bin/docker stop nginx
+ExecStopPost=/usr/bin/docker rm nginx
+
+[Install]
+WantedBy=multi-user.target
