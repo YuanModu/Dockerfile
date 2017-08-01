@@ -12,7 +12,7 @@ if [ "$1" = 'nginx' ]; then
         # Since we have no init system, runtime folders have to be created manually.
         install -dm700 -o nginx -g nginx /run/nginx
 
-	NGINX_UPSTREAM_SERVERS=$(for SERVER in $NGINX_UPSTREAM_SERVERS; do printf "server %s\n" "$SERVER"; done)
+	NGINX_UPSTREAM_SERVERS=$(for SERVER in $NGINX_UPSTREAM_SERVERS; do printf "server %s;" $SERVER; done)
 	sed -e "s|@@NGINX_DOMAIN_NAME@@|$NGINX_DOMAIN_NAME|" \
 	    -e "s|@@NGINX_DOMAIN_PORT@@|$NGINX_PORT|" \
 	    -e "s|@@NGINX_UPSTREAM_SERVERS@@|$NGINX_UPSTREAM_SERVERS|" \
