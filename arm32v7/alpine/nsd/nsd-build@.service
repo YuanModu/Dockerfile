@@ -1,0 +1,24 @@
+[Unit]
+Description=NSD name server at IP %i: build docker image
+
+Requires=docker.service
+
+After=docker.service
+BindsTo=nsd@%i.service
+
+[Service]
+Type=oneshot
+
+RemainAfterExit=yes
+
+TimeoutStartSec=0
+
+ExecStart=/usr/bin/bash -c '\
+    set -e -o pipefail; \
+    DIR=$(mktemp -d); \
+    git clone https://github.com/YuanModu/Dockerfile.git $DIR; \
+    docker build --pull -t yuanmodu/arm32v7-alpine-nsd \
+    	$DIR/arm32v7/alpine/nsd/build/ || rm -r $DIR; \
+    rm -r -f $DIR'
+
+ExecStop=/usr/bin/docker rmi yuanmodu/arm32v7-alpine-nsd
