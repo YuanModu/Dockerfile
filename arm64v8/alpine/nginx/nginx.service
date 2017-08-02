@@ -1,5 +1,5 @@
 [Unit]
-Description=NGINX web server
+Description=NGINX web server at IP %i
 
 Requires=docker.service
 
@@ -16,8 +16,8 @@ EnvironmentFile=/etc/environment
 
 ExecStartPre=/usr/bin/docker create \
     --name nginx \
-    -p 80:80/tcp \
-    -p 8000:8000/tcp \
+    -p %i:80:80/tcp \
+    -p %i:8000:8000/tcp \
     yuanmodu/arm64v8-alpine-nginx
 ExecStart=/usr/bin/docker start -a nginx
 
