@@ -1,8 +1,0 @@
-nginx:
-  image: yuanmodu/nginx
-  container_name: nginx
-  ports:
-    - "80:80/tcp"
-    - "8000:8000/tcp"
-  environment:
-    - NGINX_DOMAIN_NAME=example.org

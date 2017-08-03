@@ -16,6 +16,17 @@ EnvironmentFile=/etc/environment
 
 ExecStartPre=/usr/bin/docker create \
     --name wagtail \
+    -e GIT_REPO="${GIT_REPO}" \
+    -e MASTER="${MASTER}" \
+    -e VACUUM="${VACUUM}" \
+    -e THUNDER_LOCK="${THUNDER_LOCK}" \
+    -e PROCESSES="${PROCESSES}" \
+    -e THREADS="${THREADS}" \
+    -e HARAKIRI="${HARAKIRI}" \
+    -e MAX_REQUEST="${MAX_REQUEST}" \
+    -e POST_BUFFERING="${POST_BUFFERING}" \
+    -e OFFLOAD_THREADS="${OFFLOAD_THREADS}" \
+    -e MEMORY_REPORT="${MEMORY_REPORT}" \
     -p %i:5432:5432/tcp \
     -p %i:8000:8000/tcp \
     yuanmodu/arm64v8-alpine-wagtail
