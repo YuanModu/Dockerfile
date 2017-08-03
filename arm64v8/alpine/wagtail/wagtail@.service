@@ -1,0 +1,28 @@
+[Unit]
+Description=Wagtail web server at IP %i
+
+Requires=docker.service
+
+After=docker.service
+
+[Service]
+Type=simple
+
+TimeoutStartSec=0
+
+KillMode=none
+
+EnvironmentFile=/etc/environment
+
+ExecStartPre=/usr/bin/docker create \a
+    --name wagtail \
+    -p %i:5432:5432/tcp \
+    -p %i:8000:8000/tcp \
+    yuanmodu/arm64v8-alpine-wagtail
+ExecStart=/usr/bin/docker start -a wagtail
+
+ExecStop=/usr/bin/docker stop wagtail
+ExecStopPost=/usr/bin/docker rm wagtail
+
+[Install]
+WantedBy=multi-user.target
