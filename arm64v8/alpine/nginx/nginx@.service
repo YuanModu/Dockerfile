@@ -16,6 +16,8 @@ EnvironmentFile=/etc/environment
 
 ExecStartPre=/usr/bin/docker create \
     --name nginx \
+    -e NGINX_DOMAIN_NAME="${NGINX_DOMAIN_NAME}" \
+    -e NGINX_UPSTREAM_SERVERS="${NGINX_UPSTREAM_SERVERS}" \
     -p %i:80:80/tcp \
     -p %i:8000:8000/tcp \
     yuanmodu/arm64v8-alpine-nginx

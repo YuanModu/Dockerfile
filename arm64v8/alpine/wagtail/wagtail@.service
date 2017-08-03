@@ -14,7 +14,7 @@ KillMode=none
 
 EnvironmentFile=/etc/environment
 
-ExecStartPre=/usr/bin/docker create \a
+ExecStartPre=/usr/bin/docker create \
     --name wagtail \
     -p %i:5432:5432/tcp \
     -p %i:8000:8000/tcp \
