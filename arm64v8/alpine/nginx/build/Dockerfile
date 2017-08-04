@@ -3,7 +3,7 @@ FROM yuanmodu/arm64v8-alpine
 LABEL description "NGINX proxy server" \
 	maintainer="Atila Satilmis <atila.satilmis@gmail.com>"
 
-RUN set -x \
+RUN set -ex \
 	&& apk add --no-cache nginx
 
 # Copy the configuration file template and static files.
