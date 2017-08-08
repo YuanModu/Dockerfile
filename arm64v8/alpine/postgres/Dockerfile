@@ -6,7 +6,7 @@ LABEL description "Posgresql database server" \
 RUN set -ex \
 	&& apk add --no-cache postgresql su-exec \
 
-RUN install -o postgres -g postgres -dm2777 /var/run/postgresql
+RUN install -o postgres -g postgres -dm2777 /run/postgresql
 RUN install -o postgres -g postgres -d /var/lib/postgresql
 ENV PGDATA /var/lib/postgresql/data
 RUN install -o postgres -g postgres -dm777 "$PGDATA"
