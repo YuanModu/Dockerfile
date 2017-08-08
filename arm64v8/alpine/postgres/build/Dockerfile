@@ -4,7 +4,7 @@ LABEL description "Posgresql database server" \
 	maintainer="Atila Satilmis <atila.satilmis@gmail.com>"
 
 RUN set -ex \
-	&& apk add --no-cache postgresql su-exec \
+	&& apk add --no-cache postgresql su-exec
 
 RUN install -o postgres -g postgres -dm2777 /run/postgresql
 RUN install -o postgres -g postgres -d /var/lib/postgresql
