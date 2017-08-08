@@ -1,0 +1,30 @@
+[Unit]
+Description=Postgreql database server at IP %i
+
+Requires=docker.service
+
+After=docker.service
+
+[Service]
+Type=simple
+
+TimeoutStartSec=0
+
+KillMode=none
+
+EnvironmentFile=/etc/environment
+
+ExecStartPre=/usr/bin/docker create \
+    --name postgresql \
+    -e POSTGRES_USER="${POSTGRES_USER}" \
+    -e POSTGRES_DB="${POSTGRES_DB}" \
+    -e POSTGRES_PASSWORD="${POSTGRES_PASSWORD}" \
+    -p %i:5432:5432/tcp \
+    yuanmodu/arm64v8-alpine-wagtail
+ExecStart=/usr/bin/docker start -a wagtail
+
+ExecStop=/usr/bin/docker stop wagtail
+ExecStopPost=/usr/bin/docker rm wagtail
+
+[Install]
+WantedBy=multi-user.target
