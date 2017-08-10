@@ -21,4 +21,4 @@ ExecStart=/usr/bin/bash -c '\
     	$DIR/arm64v8/alpine/nsd/build/ || rm -r $DIR; \
     rm -r -f $DIR'
 
-ExecStop=/usr/bin/docker rmi yuanmodu/arm32v7-alpine-nsd
+ExecStop=/usr/bin/docker rmi yuanmodu/arm64v8-alpine-nsd
