@@ -1,6 +1,0 @@
-nsd:
-  image: yuanmodu/arm32v7-alpine-nsd
-  container_name: nsd
-  ports:
-    - "53:53/tcp"
-    - "53:53/udp"
