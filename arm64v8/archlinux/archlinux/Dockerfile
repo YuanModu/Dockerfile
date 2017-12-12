@@ -1,3 +1,3 @@
 FROM scratch
 ADD ArchLinuxARM-aarch64-latest.tar.gz /
-CMD ["/bin/sh"]
+CMD ["/bin/bash"]
