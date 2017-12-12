@@ -1,3 +1,3 @@
 FROM scratch
-ADD rootfs.tar.gz /
+ADD ArchLinuxARM-aarch64-latest.tar.gz /
 CMD ["/bin/sh"]
