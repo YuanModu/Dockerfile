@@ -2,10 +2,10 @@
 Description=NSD name server at LAN IP %i
 
 Requires=docker.service
-Requires=docker-nsd-build@%i.service
+Requires=docker-alpine-nsd-build@%i.service
 
 After=docker.service
-After=docker-nsd-build@%i.service
+After=docker-alpine-nsd-build@%i.service
 
 [Service]
 Type=simple
