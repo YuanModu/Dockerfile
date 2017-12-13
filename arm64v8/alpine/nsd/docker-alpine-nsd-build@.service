@@ -1,10 +1,10 @@
 [Unit]
-Description=NSD name server at LAN IP %i: build docker image
+Description=Containerized Alpine NSD name server at LAN IP %i: build docker image
 
 Requires=docker.service
 
 After=docker.service
-BindsTo=docker-nsd@%i.service
+BindsTo=docker-alpine-nsd@%i.service
 
 [Service]
 Type=oneshot
