@@ -9,6 +9,6 @@ $TTL 7200
                                         86400 )    ; Minimum
 
                     IN                NS                   ns1.yuan.com.tr.
-@                   IN                A                    188.3.152.95
-www                 IN                A                    188.3.152.95
-ns1                 IN                A                    188.3.152.95
+@                   IN                A                    31.177.170.198
+www                 IN                A                    31.177.170.198
+ns1                 IN                A                    31.177.170.198
