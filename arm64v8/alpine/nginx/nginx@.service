@@ -1,5 +1,5 @@
 [Unit]
-Description=NGINX web server at IP %i
+Description=NGINX web server at LAN IP %i
 
 Requires=docker.service
 
