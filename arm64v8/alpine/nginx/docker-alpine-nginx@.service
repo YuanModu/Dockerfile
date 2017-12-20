@@ -1,9 +1,5 @@
 [Unit]
-<<<<<<< HEAD:arm64v8/alpine/nginx/nginx@.service
-Description=Containerized NGINX web server at LAN IP %i
-=======
 Description=Containerized Alpine NGINX web server at LAN IP %i
->>>>>>> 9b8f39f9fb24432e561ffdf28c217de5d79e53c1:arm64v8/alpine/nginx/docker-alpine-nginx@.service
 
 Requires=docker.service
 
