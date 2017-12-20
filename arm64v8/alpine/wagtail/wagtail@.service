@@ -1,5 +1,5 @@
 [Unit]
-Description=Wagtail application server at IP %i
+Description=Containerized Wagtail application server at LAN IP %i
 
 Requires=docker.service
 

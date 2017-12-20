@@ -1,5 +1,5 @@
 [Unit]
-Description=NSD name server at IP %i
+Description=Containerized NSD name server at LAN IP %i
 
 Requires=docker.service
 Requires=nsd-build@%i.service
