@@ -1,5 +1,5 @@
 [Unit]
-Description=Postgreql database server at IP %i
+Description=Containerized Postgreql database server at LAN IP %i
 
 Requires=docker.service
 
