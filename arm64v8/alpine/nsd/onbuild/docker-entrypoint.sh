@@ -10,6 +10,8 @@ if [ "$1" = 'nsd' ]; then
     # Since we have no init system, runtime folders have to be created manually.
     install -dm700 -o nsd -g nsd /var/run/nsd/
     install -dm700 -o nsd -g nsd /var/db/nsd/
+    
+    nsd-control-setup
 fi
 
 exec "$@"
