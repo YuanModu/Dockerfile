@@ -17,7 +17,7 @@ ExecStart=/usr/bin/bash -c '\
     set -e -o pipefail; \
     DIR=$(mktemp -d); \
     git clone https://github.com/YuanModu/Dockerfile.git $DIR; \
-    docker build -t yuanmodu/arm64v8-alpine-nsd \
+    docker build --pull -t yuanmodu/arm64v8-alpine-nsd \
     	$DIR/arm64v8/alpine/nsd/build/ || rm -r $DIR; \
     rm -r -f $DIR'
 
