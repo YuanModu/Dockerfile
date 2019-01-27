@@ -1,14 +1,14 @@
-$ORIGIN yuan.com.tr.
+$ORIGIN yuan.gen.tr.
 $TTL 7200
 
-@       IN      SOA    ns1.yuan.com.tr. admin.yuan.com.tr. (
+@       IN      SOA    ns1.yuan.gen.tr. admin.yuan.gen.tr. (
                                         2016020202 ; Serial
                                         7200       ; Refresh
                                         1800       ; Retry
                                         1209600    ; Expire
                                         86400 )    ; Minimum
 
-                    IN                NS                   ns1.yuan.com.tr.
-@                   IN                A                    31.177.170.198
-www                 IN                A                    31.177.170.198
-ns1                 IN                A                    31.177.170.198
+                    IN                NS                   ns1.yuan.gen.tr.
+@                   IN                A                    78.174.127.71
+www                 IN                A                    78.174.127.71
+ns1                 IN                A                    78.174.127.71
