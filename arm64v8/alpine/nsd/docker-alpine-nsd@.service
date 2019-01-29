@@ -2,10 +2,8 @@
 Description=Containerized Alpine NSD name server at LAN IP %i
 
 Requires=docker.service
-Requires=docker-alpine-nsd-build@%i.service
 
 After=docker.service
-After=docker-alpine-nsd-build@%i.service
 
 [Service]
 Type=simple
@@ -18,6 +16,8 @@ EnvironmentFile=/etc/environment
 
 ExecStartPre=/usr/bin/docker create \
     --name nsd \
+    -e NSD_DOMAIN_NAME="${NSD_DOMAIN_NAME}" \
+    -e NSD_DOMAIN_IP="${NSD_DOMAIN_IP}" \
     -p %i:53:53/tcp \
     -p %i:53:53/udp \
     yuanmodu/arm64v8-alpine-nsd
