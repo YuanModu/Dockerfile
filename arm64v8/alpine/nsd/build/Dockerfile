@@ -4,7 +4,7 @@ LABEL description "Simple DNS authoritative server" \
 	maintainer="Atila Satilmis <atila.satilmis@gmail.com>"
 
 RUN set -ex \
-	&& apk add --no-cache nsd
+	&& apk add --no-cache nsd \
 	&& apk add --no-cache openssl
 
 # Copy NSD config file and zonefiles.
