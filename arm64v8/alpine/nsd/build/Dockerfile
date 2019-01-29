@@ -5,6 +5,7 @@ LABEL description "Simple DNS authoritative server" \
 
 RUN set -ex \
 	&& apk add --no-cache nsd
+	&& apk add --no-cache openssl
 
 # Copy NSD config file and zonefiles.
 COPY docker-nsd.conf.template /nsd.conf.template
