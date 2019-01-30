@@ -12,8 +12,6 @@ TimeoutStartSec=0
 
 KillMode=none
 
-EnvironmentFile=/etc/environment
-
 ExecStartPre=/usr/bin/docker create \
     --name nsd \
     -e NSD_DOMAIN_NAME="${NSD_DOMAIN_NAME}" \

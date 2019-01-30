@@ -12,8 +12,6 @@ TimeoutStartSec=0
 
 KillMode=none
 
-EnvironmentFile=/etc/environment
-
 ExecStartPre=/usr/bin/docker create \
     --name nginx \
     -e NGINX_DOMAIN_NAME="${NGINX_DOMAIN_NAME}" \
