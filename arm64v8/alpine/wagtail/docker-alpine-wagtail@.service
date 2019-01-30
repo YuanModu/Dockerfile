@@ -12,8 +12,6 @@ TimeoutStartSec=0
 
 KillMode=none
 
-EnvironmentFile=/etc/environment
-
 ExecStartPre=/usr/bin/docker create \
     --name wagtail \
     -e GIT_REPO="${GIT_REPO}" \
