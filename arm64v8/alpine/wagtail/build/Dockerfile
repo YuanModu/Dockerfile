@@ -10,7 +10,7 @@ RUN set -x \
 		python3-dev \
 		libjpeg-turbo-dev \
 		libwebp-dev \
-		tiff-dev
+		tiff-dev \
 
 	&& pip3 install --no-cache-dir wagtail \
 
