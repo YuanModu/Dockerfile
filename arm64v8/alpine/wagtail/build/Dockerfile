@@ -11,11 +11,8 @@ RUN set -x \
 		libjpeg-turbo-dev \
 		libwebp-dev \
 		tiff-dev \
-
 	&& pip3 install --no-cache-dir wagtail \
-
 	&& apk del .build-deps \
-
 	&& apk add --no-cache \
 		python3 \
 		uwsgi \
