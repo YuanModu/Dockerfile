@@ -20,6 +20,7 @@ RUN set -x \
 		python3 \
 		uwsgi \
 		uwsgi-python3 \
+		py3-psycopg2 \
 		git \
 		libjpeg-turbo \
 		libwebp \
