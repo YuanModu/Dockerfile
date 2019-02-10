@@ -10,9 +10,15 @@ RUN set -x \
 		python3-dev \
 		libjpeg-turbo-dev \
 		libwebp-dev \
+<<<<<<< HEAD
 		tiff-dev \
 	&& pip3 install --no-cache-dir wagtail \
 	&& apk del .build-deps \
+=======
+		tiff-dev
+
+RUN set -x \
+>>>>>>> old-stable
 	&& apk add --no-cache \
 		python3 \
 		uwsgi \
@@ -24,6 +30,17 @@ RUN set -x \
 		tiff \
 		freetype \
 		lcms2
+
+RUN set -x \
+	&& pip3 install --no-cache-dir --upgrade pip \
+	&& pip3 install --no-cache-dir \
+		wagtail \
+		django-compressor \
+		django-libsass
+
+
+RUN set -x \
+	&& apk del .build-deps
 
 COPY docker-defaults.ini.template /defaults.ini.template
 
