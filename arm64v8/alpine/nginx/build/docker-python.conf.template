@@ -1,0 +1,20 @@
+upstream python {
+  @@NGINX_UPSTREAM_SERVERS@@
+}
+
+server {
+  listen          80;
+  server_name     @@NGINX_DOMAIN_NAME@@;
+  return          301 http://www.@@NGINX_DOMAIN_NAME@@$request_uri;
+}
+
+server {
+  listen          80;
+  server_name     www.@@NGINX_DOMAIN_NAME@@;
+  charset         utf-8;
+
+  location / {
+    include     uwsgi_params;
+    uwsgi_pass  uwsgi://python;
+  }
+}
