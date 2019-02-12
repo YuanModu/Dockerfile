@@ -9,3 +9,4 @@ COPY docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 80 8000
+CMD ["nginx", "-g", "daemon off;"]
