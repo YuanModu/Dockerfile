@@ -1,9 +1,10 @@
 FROM nginx:alpine
 
 # Remove the default configuration files
-RUN rm -f \
-  /etc/nginx/nginx.conf.default \
-  /etc/nginx/conf.d/default.conf
+RUN RUN set -x \
+  && rm -f \
+    /etc/nginx/nginx.conf.default \
+    /etc/nginx/conf.d/default.conf
 
 # Copy the configuration files.
 COPY docker-nginx.conf              /etc/nginx/nginx.conf
