@@ -25,16 +25,16 @@ if [ "$1" = 'uwsgi' ]; then
     chown -R uwsgi.uwsgi /usr/share/webapp
 
     sed -e "s|@@MASTER@@|$MASTER|" \
-    	-e "s|@@VACUUM@@|$VACUUM|" \
-    	-e "s|@@THUNDER_LOCK@@|${THUNDER_LOCK}|" \
-    	-e "s|@@PROCESSES@@|$PROCESSES|" \
-    	-e "s|@@THREADS@@|$THREADS|" \
-    	-e "s|@@HARAKIRI@@|$HARAKIRI|" \
-    	-e "s|@@MAX_REQUEST@@|$MAX_REQUEST|" \
-    	-e "s|@@POST_BUFFERING@@|$POST_BUFFERING|" \
-    	-e "s|@@OFFLOAD_THREADS@@|$OFFLOAD_THREADS|" \
-    	-e "s|@@MEMORY_REPORT@@|$MEMORY_REPORT|" \
-		/defaults.ini.template > /etc/uwsgi/defaults.ini
+        -e "s|@@VACUUM@@|$VACUUM|" \
+        -e "s|@@THUNDER_LOCK@@|${THUNDER_LOCK}|" \
+        -e "s|@@PROCESSES@@|$PROCESSES|" \
+        -e "s|@@THREADS@@|$THREADS|" \
+        -e "s|@@HARAKIRI@@|$HARAKIRI|" \
+        -e "s|@@MAX_REQUEST@@|$MAX_REQUEST|" \
+        -e "s|@@POST_BUFFERING@@|$POST_BUFFERING|" \
+        -e "s|@@OFFLOAD_THREADS@@|$OFFLOAD_THREADS|" \
+        -e "s|@@MEMORY_REPORT@@|$MEMORY_REPORT|" \
+        /defaults.ini.template > /etc/uwsgi/defaults.ini
 fi
 
 exec "$@"
