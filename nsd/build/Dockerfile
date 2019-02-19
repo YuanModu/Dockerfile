@@ -1,11 +1,11 @@
-FROM yuanmodu/arm64v8-alpine
+FROM alpine
 
 LABEL description "Simple DNS authoritative server" \
 	maintainer="Atila Satilmis <atila.satilmis@gmail.com>"
 
 RUN set -ex \
-	&& apk add --no-cache nsd \
-	&& apk add --no-cache openssl
+    && apk add --no-cache nsd \
+    && apk add --no-cache openssl
 
 # Copy NSD config file and zonefiles.
 COPY docker-nsd.conf.template /nsd.conf.template

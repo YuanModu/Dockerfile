@@ -15,7 +15,7 @@ if [ "$1" = 'nsd' ]; then
     install -dm700 -o nsd -g nsd /var/db/nsd/
 
     sed -e "s|@@NSD_DOMAIN_NAME@@|$NSD_DOMAIN_NAME|" \
-  		/nsd.conf.template > /etc/nsd/nsd.conf
+        /nsd.conf.template > /etc/nsd/nsd.conf
 
     sed -e "s|@@NSD_DOMAIN_NAME@@|$NSD_DOMAIN_NAME|g" \
         -e "s|@@NSD_DOMAIN_IP@@|$NSD_DOMAIN_IP|" \
