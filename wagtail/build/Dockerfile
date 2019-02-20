@@ -16,6 +16,7 @@ RUN set -ex \
         openjpeg-dev \
     && apk add --no-cache \
         python3 \
+        libstdc++ \
         uwsgi \
         uwsgi-python3 \
         py3-psycopg2 \
