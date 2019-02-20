@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
 # Remove the default configuration files
-RUN set -x \
+RUN set -ex \
   && rm -f \
     /etc/nginx/nginx.conf.default \
     /etc/nginx/conf.d/default.conf
