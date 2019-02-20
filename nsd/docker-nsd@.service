@@ -1,5 +1,5 @@
 [Unit]
-Description=Containerized Alpine NSD name server at LAN IP %i
+Description=Containerized NSD name server at LAN IP %i
 
 Requires=docker.service
 
@@ -18,7 +18,7 @@ ExecStartPre=/usr/bin/docker create \
     -e NSD_DOMAIN_IP="${NSD_DOMAIN_IP}" \
     -p %i:53:53/tcp \
     -p %i:53:53/udp \
-    yuanmodu/alpine-nsd
+    yuanmodu/nsd
 ExecStart=/usr/bin/docker start -a nsd
 
 ExecStop=/usr/bin/docker stop nsd

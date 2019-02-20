@@ -27,7 +27,7 @@ ExecStartPre=/usr/bin/docker create \
     -e MEMORY_REPORT="${MEMORY_REPORT}" \
     -p %i:5432:5432/tcp \
     -p %i:8000:8000/tcp \
-    yuanmodu/alpine-wagtail
+    yuanmodu/wagtail
 ExecStart=/usr/bin/docker start -a wagtail
 
 ExecStop=/usr/bin/docker stop wagtail
