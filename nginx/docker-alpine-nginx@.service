@@ -18,7 +18,7 @@ ExecStartPre=/usr/bin/docker create \
     -e NGINX_UPSTREAM_SERVERS="${NGINX_UPSTREAM_SERVERS}" \
     -p %i:80:80/tcp \
     -p %i:8000:8000/tcp \
-    yuanmodu/arm64v8-alpine-nginx
+    yuanmodu/alpine-nginx
 ExecStart=/usr/bin/docker start -a nginx
 
 ExecStop=/usr/bin/docker stop nginx

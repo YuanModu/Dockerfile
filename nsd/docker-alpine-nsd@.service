@@ -18,7 +18,7 @@ ExecStartPre=/usr/bin/docker create \
     -e NSD_DOMAIN_IP="${NSD_DOMAIN_IP}" \
     -p %i:53:53/tcp \
     -p %i:53:53/udp \
-    yuanmodu/arm64v8-alpine-nsd
+    yuanmodu/alpine-nsd
 ExecStart=/usr/bin/docker start -a nsd
 
 ExecStop=/usr/bin/docker stop nsd
