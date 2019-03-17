@@ -3,42 +3,41 @@ FROM alpine
 LABEL description "Python application server" \
     maintainer="Atila Satilmis <atila.satilmis@gmail.com>"
 
+ENV PYTHONUNBUFFERED 1
+ENV DJANGO_ENV dev
+
 RUN set -ex \
     && apk add --no-cache --virtual .build-deps \
-        build-base \
+        gcc \
+        g++ \
+        musl-dev \
         python3-dev \
         libjpeg-turbo-dev \
+        postgresql-dev \
         zlib-dev \
-        tiff-dev \
-        freetype-dev \
-        lcms2-dev \
-        libwebp-dev \
-        openjpeg-dev \
     && apk add --no-cache \
         python3 \
-        libstdc++ \
-        uwsgi \
-        uwsgi-python3 \
-        py3-psycopg2 \
-        git \
         libjpeg-turbo \
-        zlib \
-        tiff \
-        freetype \
-        lcms2 \
-        libwebp \
-        openjpeg \
+        libpq \
+        libstdc++ \
     && pip3 install --no-cache-dir --upgrade pip \
     && pip3 install --no-cache-dir \
         wagtail \
-        django-compressor \
         django-libsass \
+        psycopg2 \
+        gunicorn \
     && apk del .build-deps
 
-COPY docker-defaults.ini.template /defaults.ini.template
+RUN set -ex \
+    && cd /usr/share \
+    && wagtail start webapp \
+    && python3 webapp/manage.py migrate
 
-COPY docker-entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+RUN set -ex \
+    && chown -R guest /usr/share/webapp
+
+WORKDIR /usr/share/webapp
+USER guest
 
 EXPOSE 8000 5432
-CMD ["uwsgi", "--ini", "/etc/uwsgi/defaults.ini"]
+CMD ["gunicorn", "webapp.wsgi:application", "--bind", "172.17.0.2:8000", "--workers", "3"]
