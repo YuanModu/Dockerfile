@@ -4,7 +4,7 @@ LABEL description "Python application server" \
     maintainer="Atila Satilmis <atila.satilmis@gmail.com>"
 
 ENV PYTHONUNBUFFERED 1
-ENV DJANGO_ENV dev
+ENV DJANGO_ENV production
 
 RUN set -ex \
     && apk add --no-cache --virtual .build-deps \
@@ -26,6 +26,7 @@ RUN set -ex \
         django-libsass \
         psycopg2 \
         gunicorn \
+        whitenoise \
     && apk del .build-deps
 
 RUN set -ex \
@@ -33,11 +34,7 @@ RUN set -ex \
     && wagtail start webapp \
     && python3 webapp/manage.py migrate
 
-RUN set -ex \
-    && chown -R guest /usr/share/webapp
-
 WORKDIR /usr/share/webapp
-USER guest
 
 EXPOSE 8000 5432
 CMD ["gunicorn", "webapp.wsgi:application", "--bind", "172.17.0.2:8000", "--workers", "3"]
