@@ -26,7 +26,6 @@ RUN set -ex \
         django-libsass \
         psycopg2 \
         gunicorn \
-        whitenoise \
     && apk del .build-deps
 
 RUN set -ex \
