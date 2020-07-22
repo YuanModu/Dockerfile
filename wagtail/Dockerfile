@@ -17,6 +17,7 @@ RUN set -ex \
         zlib-dev \
     && apk add --no-cache \
         python3 \
+        py3-pip \
         libjpeg-turbo \
         libpq \
         libstdc++ \
